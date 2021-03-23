@@ -1,0 +1,17 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: MSS-User-Auth
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#  datasource:
+#    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
+#    username: user
+#    password: pawssword
+  security:
+    user:
+      name: miracle
+      password: Miracle@1
+      roles: user
