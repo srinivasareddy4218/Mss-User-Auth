@@ -43,8 +43,9 @@ node{
 		sh "gcloud container clusters create javaproject2 \
 --machine-type=e2-medium"
    }
+   }
    */
-     }
+     
    stage('Deploy to kubernetes'){
         withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
 	sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
