@@ -7,7 +7,7 @@ node{
    
 	
     stage('SCM Checkout'){
-      git credentialsId: 'LohitaGithub', url: 'https://github.com/oohasri95/Mss-User-Auth.git'
+      git credentialsId: 'aabc9fb7-0647-4c60-93ce-e92eeabb6252', url: 'https://github.com/oohasri95/Mss-User-Auth.git'
     }
 	
      stage('Build Project') {
