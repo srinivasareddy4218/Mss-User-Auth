@@ -29,7 +29,7 @@ node{
         sh "gcloud auth configure-docker"
         sh "gcloud config list"
         sh "cat ${GOOGLE_APPLICATION_CREDENTIALS} | sudo docker login -u _json_key --password-stdin https://us.gcr.io"
-		sh "sudo docker push us.gcr.io/mssdevops-284216/project1-${BUILDNUMBER}" 
+		sh "sudo docker push us.gcr.io/mssdevops-284216/javaproject" 
         }
     }
     stage('Create Cluster GKE') {
