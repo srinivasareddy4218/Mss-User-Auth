@@ -40,7 +40,7 @@ node{
         sh "gcloud config set compute/region ${region}"
         sh "gcloud auth configure-docker"
         sh "gcloud config list"
-		sh "gcloud container clusters create my-sampleproject --project  test-project-1 \
+		sh "gcloud container clusters create my-sampleproject --project mssdevops \
 --machine-type=e2-medium"
    }
    
