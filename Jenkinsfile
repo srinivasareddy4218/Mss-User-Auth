@@ -15,18 +15,8 @@ node{
           echo "Executed Successfully Project1"
     }
 
-    	stage('Publish Tests Results'){
-      		parallel(
-        		publishJunitTestsResultsToJenkins: {
-          		echo "Publish junit Tests Results"
-		  	junit '**/target/surefire-reports/TEST-*.xml'
-		  	archive 'target/*.jar'
-        	},
-			publishJunitTestsResultsToSonar: {
-          echo "This is branch b"
-      })
-    }
-    stage('Build Docker Image'){
+    	
+       stage('Build Docker Image'){
 	    sh "sudo docker build -t us.gcr.io/mssdevops-284216/sample-java ."
      }
     
