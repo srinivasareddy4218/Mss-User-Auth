@@ -54,9 +54,8 @@ node{
          sh "gcloud config set compute/zone ${zone}"
          sh "gcloud config set compute/region ${region}"
          sh "gcloud container clusters get-credentials javaproject1  --zone us-central1-c --project mssdevops-284216"
-	 sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"' 
-         sh "chmod u+x ./kubectl" 
-	 sh "$(which kubectl) apply -f sampledeploy.yml -n=javaproject"	
+	 sh "kubectl create ns javaproject"
+	 sh "kubectl apply -f sampledeploy.yml -n=javaproject"	
 	}
    }
 }
