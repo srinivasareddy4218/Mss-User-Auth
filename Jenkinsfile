@@ -6,23 +6,23 @@ node{
     // ip address of the docker private repository(nexus)
    
 	
-    stage('SCM Checkout'){
-      git credentialsId: 'fa16a0b2-99b2-4a01-a13e-0a06dccff950', url: 'https://github.com/oohasri95/Mss-User-Auth.git'
-    }
+	stage('SCM Checkout'){
+		git credentialsId: 'fa16a0b2-99b2-4a01-a13e-0a06dccff950', url: 'https://github.com/oohasri95/Mss-User-Auth.git'
+	}
 	
-    stage('Build Project') {
+ 	stage('Build Project') {
       // build project via maven
-      sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
-    }
+    	  sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+    	}
 
-    stage('Publish Tests Results'){
-      parallel(
-        publishJunitTestsResultsToJenkins: {
-          echo "Publish junit Tests Results"
-		  junit '**/target/surefire-reports/TEST-*.xml'
-		  archive 'target/*.jar'
-        },
-        publishJunitTestsResultsToSonar: {
+    	stage('Publish Tests Results'){
+      		parallel(
+        		publishJunitTestsResultsToJenkins: {
+          		echo "Publish junit Tests Results"
+		  	junit '**/target/surefire-reports/TEST-*.xml'
+		  	archive 'target/*.jar'
+        	},
+			publishJunitTestsResultsToSonar: {
           echo "This is branch b"
       })
     }
