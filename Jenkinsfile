@@ -10,7 +10,7 @@ node{
       git credentialsId: 'latest', url: 'https://github.com/oohasri95/Mss-User-Auth.git'
     }
 	
-     stage('Build Project') {
+    stage('Build Project') {
       // build project via maven
       sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
     }
