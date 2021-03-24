@@ -6,14 +6,14 @@ node{
     // ip address of the docker private repository(nexus)
    
 	
-	stage('SCM Checkout'){
-		git credentialsId: 'fa16a0b2-99b2-4a01-a13e-0a06dccff950', url: 'https://github.com/oohasri95/Mss-User-Auth.git'
-	}
+    stage('SCM Checkout'){
+      git credentialsId: 'fa16a0b2-99b2-4a01-a13e-0a06dccff950', url: 'https://github.com/oohasri95/Mss-User-Auth.git'
+    }
 	
- 	stage('Build Project') {
-      // build project via maven
-    	  sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
-    	}
+    stage('Build Project'){
+          sh "cd ${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package "
+          echo "Executed Successfully Project1"
+    }
 
     	stage('Publish Tests Results'){
       		parallel(
