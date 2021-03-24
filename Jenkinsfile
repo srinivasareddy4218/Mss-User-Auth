@@ -59,3 +59,4 @@ node{
          sh "kubectl apply -f sampledeploy.yml -n=javaproject"	
    }
 }
+}
