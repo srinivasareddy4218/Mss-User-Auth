@@ -17,7 +17,7 @@ node{
 
     	
        stage('Build Docker Image'){
-	    sh "sudo docker build -t us.gcr.io/mssdevops-284216/sample-java ."
+	    sh "sudo docker build -t us.gcr.io/mssdevops-284216/javaproject ."
      }
     
     stage('GCR packaging') {
