@@ -40,7 +40,7 @@ node{
         sh "gcloud config set compute/region ${region}"
         sh "gcloud auth configure-docker"
         sh "gcloud config list"
-		sh "gcloud container clusters create javaproject1 \
+		sh "gcloud container clusters create javaproject \
 --machine-type=e2-medium"
    }
    
@@ -52,10 +52,9 @@ node{
          sh "gcloud config set project ${projectname}"
          sh "gcloud config set compute/zone ${zone}"
          sh "gcloud config set compute/region ${region}"
-         sh "gcloud container clusters get-credentials javaproject1  --zone us-central1-c --project mssdevops-284216"
+         sh "gcloud container clusters get-credentials javaproject  --zone us-central1-c --project mssdevops-284216"
 	 sh "kubectl create namespace javaproject"
-	 sh "kubectl get ns" 
-         sh "kubectl apply -f sampledeploy.yml -n=javaproject"	
+	 sh "kubectl apply -f sampledeploy.yml -n=javaproject"	
    }
 }
 }
