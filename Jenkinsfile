@@ -32,7 +32,7 @@ node{
 		sh "sudo docker push us.gcr.io/mssdevops-284216/javaproject" 
         }
     }
-    stage('Create Cluster GKE') {
+   /* stage('Create Cluster GKE') {
 	withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
         sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
 	sh "gcloud config set project ${projectname}"
@@ -43,7 +43,7 @@ node{
 		sh "gcloud container clusters create javaproject2 \
 --machine-type=e2-medium"
    }
-   
+   */
      }
    stage('Deploy to kubernetes'){
         withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
@@ -52,7 +52,7 @@ node{
          sh "gcloud config set project ${projectname}"
          sh "gcloud config set compute/zone ${zone}"
          sh "gcloud config set compute/region ${region}"
-         sh "gcloud container clusters get-credentials javaproject2  --zone us-central1-c --project mssdevops-284216"
+         sh "gcloud container clusters get-credentials javaproject1  --zone us-central1-c --project mssdevops-284216"
 	 sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"' 
          sh "chmod u+x ./kubectl" 
 	 sh "kubectl apply -f sampledeploy.yml -n=javaproject"	
