@@ -11,7 +11,7 @@ node{
     }
 	
     stage('Build Project'){
-          sh "cd ${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package "
+          sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
           echo "Executed Successfully Project1"
     }
 
