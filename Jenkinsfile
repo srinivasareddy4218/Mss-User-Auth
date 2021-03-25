@@ -21,7 +21,7 @@ node{
      }
     
     stage('GCR packaging') {
-        withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+        withCredentials([file(credentialsId: 'gcp-key', variable: 'gcp-key')]) {
         sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
         sh "gcloud config set project ${projectname}"
         sh "gcloud config set compute/zone ${zone}"
@@ -33,7 +33,7 @@ node{
         }
     }
    stage('Create Cluster GKE') {
-	withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+	withCredentials([file(credentialsId: 'gcp-key', variable: 'gcp-key')]) {
         sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
 	sh "gcloud config set project ${projectname}"
         sh "gcloud config set compute/zone ${zone}"
