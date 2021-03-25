@@ -54,7 +54,7 @@ node{
          sh "gcloud config set compute/zone ${zone}"
          sh "gcloud config set compute/region ${region}"
          sh "gcloud container clusters get-credentials javaproject1  --zone us-central1-c --project mssdevops-284216"
-	 sh "~/usr/bin/kubectl apply -f sampledeploy.yml -n=javaproject"	
+	 sh "kubectl apply -f sampledeploy.yml -n=javaproject"	
 	}
    }
 }
