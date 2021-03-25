@@ -22,19 +22,19 @@ node{
     
     stage('GCR packaging') {
         withCredentials([file(credentialsId: 'gcp-key', variable: 'gcp-key')]) {
-        sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
+        sh "gcloud auth activate-service-account --key-file=${gcp-key}"
         sh "gcloud config set project ${projectname}"
         sh "gcloud config set compute/zone ${zone}"
         sh "gcloud config set compute/region ${region}"
         sh "gcloud auth configure-docker"
         sh "gcloud config list"
-        sh "cat ${GOOGLE_APPLICATION_CREDENTIALS} | sudo docker login -u _json_key --password-stdin https://us.gcr.io"
+        sh "cat ${gcp-key} | sudo docker login -u _json_key --password-stdin https://us.gcr.io"
 		sh "sudo docker push us.gcr.io/mssdevops-284216/javaproject" 
         }
     }
    stage('Create Cluster GKE') {
 	withCredentials([file(credentialsId: 'gcp-key', variable: 'gcp-key')]) {
-        sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
+        sh "gcloud auth activate-service-account --key-file=${gcp-key}"
 	sh "gcloud config set project ${projectname}"
         sh "gcloud config set compute/zone ${zone}"
         sh "gcloud config set compute/region ${region}"
@@ -47,7 +47,7 @@ node{
      
    stage('Deploy to kubernetes'){
         withCredentials([file(credentialsId: 'gcp-key', variable: 'gcp-key')]) {
-	sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
+	sh "gcloud auth activate-service-account --key-file=${gcp-key}"
 //Configuring the project details to Jenkins and communicate with the gke cluster
          sh "gcloud config set project ${projectname}"
          sh "gcloud config set compute/zone ${zone}"
