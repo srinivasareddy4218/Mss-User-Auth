@@ -32,7 +32,7 @@ node{
 		sh "sudo docker push us.gcr.io/mssdevops-284216/javaproject" 
         }
     }
-   /* stage('Create Cluster GKE') {
+   stage('Create Cluster GKE') {
 	withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
         sh "gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}"
 	sh "gcloud config set project ${projectname}"
@@ -44,7 +44,6 @@ node{
 --machine-type=e2-medium"
    }
    }
-   */
      
    stage('Deploy to kubernetes'){
         withCredentials([file(credentialsId: 'gcp-key', variable: 'gcp-key')]) {
