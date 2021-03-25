@@ -32,7 +32,7 @@ node{
 		sh "sudo docker push us.gcr.io/mssdevops-284216/javaproject" 
         }
     }
-   stage('Create Cluster GKE') {
+  /* stage('Create Cluster GKE') {
 	withCredentials([file(credentialsId: 'key', variable: 'key')]) {
         sh "gcloud auth activate-service-account --key-file=${key}"
 	sh "gcloud config set project ${projectname}"
@@ -44,7 +44,7 @@ node{
 --machine-type=e2-medium"
    }
    }
-     
+     */
    stage('Deploy to kubernetes'){
         withCredentials([file(credentialsId: 'key', variable: 'key')]) {
 	sh "gcloud auth activate-service-account --key-file=${key}"
@@ -52,7 +52,8 @@ node{
          sh "gcloud config set project ${projectname}"
          sh "gcloud config set compute/zone ${zone}"
          sh "gcloud config set compute/region ${region}"
-         sh "gcloud container clusters get-credentials javaproject1  --zone us-central1-c --project mssdevops-284216"
+         sh "gcloud container clusters get-credentials javaproject2  --zone us-central1-c --project mssdevops-284216"
+         sh "kubectl create namespace javaproject"
 	 sh "kubectl apply -f sampledeploy.yml -n=javaproject"	
 	}
    }
