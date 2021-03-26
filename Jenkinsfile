@@ -45,7 +45,7 @@ node{
    }
    }
      
-   stage('Deploy to kubernetes'){
+   stage('Deploy to GKE'){
         withCredentials([file(credentialsId: 'key', variable: 'key')]) {
 	sh "gcloud auth activate-service-account --key-file=${key}"
 //Configuring the project details to Jenkins and communicate with the gke cluster
