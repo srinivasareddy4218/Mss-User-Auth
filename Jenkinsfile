@@ -40,7 +40,7 @@ node{
         sh "gcloud config set compute/region ${region}"
         sh "gcloud auth configure-docker"
         sh "gcloud config list"
-	sh "gcloud container clusters create java_jwt \
+	sh "gcloud container clusters create java-jwt \
 --machine-type=e2-medium"
    }
    }
@@ -52,7 +52,7 @@ node{
          sh "gcloud config set project ${projectname}"
          sh "gcloud config set compute/zone ${zone}"
          sh "gcloud config set compute/region ${region}"
-         sh "gcloud container clusters get-credentials java_jwt  --zone us-central1-c --project mssdevops-284216"
+         sh "gcloud container clusters get-credentials java-jwt  --zone us-central1-c --project mssdevops-284216"
          sh "kubectl create namespace javajwt"
 	 sh "kubectl apply -f sampledeploy.yml -n=javajwt"	
 	}
