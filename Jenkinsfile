@@ -53,8 +53,8 @@ node{
          sh "gcloud config set compute/zone ${zone}"
          sh "gcloud config set compute/region ${region}"
          sh "gcloud container clusters get-credentials java-jwt  --zone us-central1-c --project mssdevops-284216"
-         sh "kubectl create namespace javajwt"
-	 sh "kubectl apply -f sampledeploy.yml -n=javajwt"	
+         sh "kubectl create namespace javajwt1"
+	 sh "kubectl apply -f sampledeploy.yml -n=javajwt1"	
 	}
    }
 }
