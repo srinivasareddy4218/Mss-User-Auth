@@ -12,6 +12,6 @@ spring:
 #    password: pawssword
   security:
     user:
-      name: miracle
-      password: Miracle@1
+      name: root
+      password: Miracle@123
       roles: user
