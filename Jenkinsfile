@@ -32,7 +32,7 @@ node{
 		sh "sudo docker push us.gcr.io/mssdevops-284216/java_jwt" 
         }
     }
-   /*stage('Create Cluster GKE') {
+   stage('Create Cluster GKE') {
 	withCredentials([file(credentialsId: 'key', variable: 'key')]) {
         sh "gcloud auth activate-service-account --key-file=${key}"
 	sh "gcloud config set project ${projectname}"
@@ -40,10 +40,10 @@ node{
         sh "gcloud config set compute/region ${region}"
         sh "gcloud auth configure-docker"
         sh "gcloud config list"
-	sh "gcloud container clusters create java-jwt \
+	sh "gcloud container clusters create java-jwt1 \
 --machine-type=e2-medium"
    }
-   }*/
+   }
      
    stage('Deploy to GKE'){
         withCredentials([file(credentialsId: 'key', variable: 'key')]) {
@@ -52,7 +52,7 @@ node{
          sh "gcloud config set project ${projectname}"
          sh "gcloud config set compute/zone ${zone}"
          sh "gcloud config set compute/region ${region}"
-         sh "gcloud container clusters get-credentials java-jwt  --zone us-central1-c --project mssdevops-284216"
+         sh "gcloud container clusters get-credentials java-jwt1  --zone us-central1-c --project mssdevops-284216"
          sh "kubectl create namespace javajwt1"
 	 sh "kubectl apply -f sampledeploy.yml -n=javajwt1"	
 	}
