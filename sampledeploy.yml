@@ -3,6 +3,11 @@ kind: Deployment
 metadata:
   name: frontend
   namespace: javajwt9
+kind: Service
+metadata:
+  name: frontend
+  labels:
+    run: my-nginx
 spec:
   replicas: 1
   selector:
