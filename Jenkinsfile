@@ -32,7 +32,7 @@ node{
 		sh "sudo docker push us.gcr.io/mssdevops-284216/java_jwt" 
         }
     }
-   stage('Create Cluster GKE') {
+   /*stage('Create Cluster GKE') {
 	withCredentials([file(credentialsId: 'key', variable: 'key')]) {
         sh "gcloud auth activate-service-account --key-file=${key}"
 	sh "gcloud config set project ${projectname}"
@@ -43,7 +43,7 @@ node{
 	sh "gcloud container clusters create java-jwt \
 --machine-type=e2-medium"
    }
-   }
+   }*/
      
    stage('Deploy to GKE'){
         withCredentials([file(credentialsId: 'key', variable: 'key')]) {
