@@ -52,8 +52,6 @@ node{
          sh "gcloud config set project ${projectname}"
          sh "gcloud config set compute/zone ${zone}"
          sh "gcloud config set compute/region ${region}"
-         sh "sudo apt-get update"
-	 sh "sudo apt-get -y install mysql-server"
 	 sh "gcloud container clusters get-credentials java-jwt2  --zone us-central1-c --project mssdevops-284216"
          sh "kubectl create namespace javajwt2"
 	 sh "kubectl apply -f sampledeploy.yml -n=javajwt2"	
