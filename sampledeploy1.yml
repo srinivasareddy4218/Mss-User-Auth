@@ -7,7 +7,6 @@ metadata:
     tier: frontend
 spec:
   type: LoadBalancer
-  loadBalancerIP: 35.224.105.14
   ports:
     # the port that this service should serve on
   - port: 80
