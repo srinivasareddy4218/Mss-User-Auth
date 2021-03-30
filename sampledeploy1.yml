@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: frontend
   labels:
-    app: sample
+    app: sample1
     tier: frontend
 spec:
   type: LoadBalancer
@@ -11,5 +11,5 @@ spec:
     # the port that this service should serve on
   - port: 80
   selector:
-    app: sample
+    app: sample1
     tier: frontend
