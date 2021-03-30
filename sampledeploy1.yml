@@ -10,8 +10,8 @@ spec:
   ports:
     # the port that this service should serve on
   - port: 80
-  - targetPort: 8080
-  - protocol: TCP
+    targetPort: 8080
+    protocol: TCP
   selector:
     app: sample1
     tier: frontend
