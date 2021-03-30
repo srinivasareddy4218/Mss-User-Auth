@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  namespace: javajwt7
+  namespace: javajwt8
 spec:
   replicas: 1
   selector:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: mssdevops-284216
-        image: us.gcr.io/mssdevops-284216/java_jwt7
+        image: us.gcr.io/mssdevops-284216/java_jwt8
         imagePullPolicy: Always
         ports:
         - containerPort: 80
