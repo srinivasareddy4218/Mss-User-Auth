@@ -17,7 +17,7 @@ node{
 
     	
        stage('Build Docker Image'){
-	    sh "sudo docker build -t us.gcr.io/mssdevops-284216/java_jwt7 ."
+	    sh "sudo docker build -t us.gcr.io/mssdevops-284216/java_jwt8 ."
      }
     
     stage('GCR packaging') {
@@ -29,7 +29,7 @@ node{
         sh "gcloud auth configure-docker"
         sh "gcloud config list"
         sh "cat ${key} | sudo docker login -u _json_key --password-stdin https://us.gcr.io"
-		sh "sudo docker push us.gcr.io/mssdevops-284216/java_jwt7" 
+		sh "sudo docker push us.gcr.io/mssdevops-284216/java_jwt8" 
         }
     }
    /*stage('Create Cluster GKE') {
@@ -53,9 +53,9 @@ node{
          sh "gcloud config set compute/zone ${zone}"
          sh "gcloud config set compute/region ${region}"
 	 sh "gcloud container clusters get-credentials java-jwt4  --zone us-central1-c --project mssdevops-284216"
-         sh "kubectl create namespace javajwt7"
-	 sh "kubectl apply -f sampledeploy.yml -n=javajwt7"
-	 sh "kubectl apply -f sampledeploy1.yml -n=javajwt7"
+         sh "kubectl create namespace javajwt8"
+	 sh "kubectl apply -f sampledeploy.yml -n=javajwt8"
+	 sh "kubectl apply -f sampledeploy1.yml -n=javajwt8"
 	}
    }
 }
