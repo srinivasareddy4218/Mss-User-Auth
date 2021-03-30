@@ -24,7 +24,6 @@
 
 #copy hello world to docker image from builder image
 #COPY --from=maven_build /tmp/target/MSS-User-Auth-0.0.1-SNAPSHOT.jar /data/MSS-User-Auth-0.0.1-SNAPSHOT.jar
-//
 
 FROM maven:3.6.1-jdk-8-slim AS build
 RUN mkdir -p /workspace
