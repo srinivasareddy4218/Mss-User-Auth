@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  namespace: javajwt13
+  namespace: javajwt14
 spec:
   replicas: 1
   selector:
